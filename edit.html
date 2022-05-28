@@ -81,7 +81,7 @@ h3{
         title,
         status
     }
-    let res = await fetch(`http://localhost:3000/todolist?q=${id}`,{
+    let res = await fetch(`http://localhost:3000/todolist/${id}`,{
         method: "PATCH",
         body: JSON.stringify(body),
         headers :{
