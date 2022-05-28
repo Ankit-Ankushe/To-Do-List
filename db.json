@@ -1,24 +1,39 @@
 {
   "todolist": [
     {
-      "title": "eat",
+      "title": "excercise",
       "status": "true",
-      "id": 3
-    },
-    {
-      "title": "exercise",
-      "status": "true",
-      "id": 4
-    },
-    {
-      "title": "DSA",
-      "status": "false",
-      "id": 5
+      "id": 7
     },
     {
       "title": "coding",
       "status": "false",
-      "id": 6
+      "id": 8
+    },
+    {
+      "title": "writing",
+      "status": "true",
+      "id": 9
+    },
+    {
+      "title": "bike ride",
+      "status": "true",
+      "id": 11
+    },
+    {
+      "title": "eat",
+      "status": "false",
+      "id": 12
+    },
+    {
+      "title": "circket",
+      "status": "true",
+      "id": 13
+    },
+    {
+      "title": "college work",
+      "status": "false",
+      "id": 14
     }
   ]
 }

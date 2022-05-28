@@ -19,6 +19,7 @@ async function getData(url){
 showList();
 function display(data){
     data.forEach(ele => {
+        let div = document.createElement("div")
         let title = document.createElement("div")
         title.innerText = ele.title;
         title.addEventListener("click" , function(){
@@ -32,8 +33,22 @@ function display(data){
             console.log(ele.status)
             title.style.color = "green";
         }
-
-        document.getElementById("showList").append(title)
+        let delBut = document.createElement("button");
+        delBut.innerText = "delete";
+        delBut.addEventListener("click" ,async function(){
+            try{
+                    let id = ele.id;
+                let res = await fetch(`http://localhost:3000/todolist/${id}`,{
+                    method: "DELETE"
+                });
+                window.location.reload();
+               }
+                catch (error) {
+                    console.log(error)
+                }
+        })
+        div.append(delBut)
+        document.getElementById("showList").append(title,div)
     });
 }
 
