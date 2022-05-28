@@ -1,0 +1,24 @@
+{
+  "todolist": [
+    {
+      "title": "eat",
+      "status": "true",
+      "id": 3
+    },
+    {
+      "title": "exercise",
+      "status": "true",
+      "id": 4
+    },
+    {
+      "title": "DSA",
+      "status": "false",
+      "id": 5
+    },
+    {
+      "title": "coding",
+      "status": "false",
+      "id": 6
+    }
+  ]
+}

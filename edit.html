@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT</title>
+    <style>
+        *{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#container{
+    width: 60%;
+    margin: auto;
+    background-color: rgb(220, 216, 216);
+    text-align: center;
+    margin-top: 100px;
+}
+label{
+    font-size: 20px;
+}
+input{
+    padding: 1%;
+}
+select{
+    padding: 1%;
+}
+button{
+    padding: 1%;
+    background-color: #545454 ;
+    color: white;
+    font-size: 18px;
+}
+#preData{
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+    margin: auto;
+}
+h3{
+    color: black;
+}
+    </style>
+</head>
+<body>
+   
+    <div id="container">
+        <h1>Edit your list</h1>
+        <label for="title"> Title</label>
+        <input type="text" placeholder="Title" id="title">
+        <label for="status">Status</label>
+            <select id="status">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <button onclick="patchList()">EDIT</button>
+            <h3>Previous data</h3>
+            <div id="preData"></div>
+    </div>
+</body>
+<script>
+   let ele = JSON.parse(localStorage.getItem("selectedTitle"));
+   let title = document.createElement("h3")
+        title.innerText ="Title :" + ele.title;
+
+        let status = document.createElement("h3")
+        status.innerText = "Status :" + ele.status;
+
+        document.getElementById("preData").append(title,status)
+
+     // patch data
+     async function patchList(){
+        
+   try{
+    let data = JSON.parse(localStorage.getItem("selectedTitle"));
+        let id = data.id;
+       let title = document.getElementById("title").value;
+       let status = document.getElementById("status").value;
+    //    console.log(title,status);
+    let body = {
+        title,
+        status
+    }
+    let res = await fetch(`http://localhost:3000/todolist?q=${id}`,{
+        method: "PATCH",
+        body: JSON.stringify(body),
+        headers :{
+            "Content-Type" : "application/json"
+        }
+    });
+    window.location.href = "index.html"
+   }
+    catch (error) {
+        console.log(error)
+    }
+}
+</script>
+</html>
